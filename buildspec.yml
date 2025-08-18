@@ -17,8 +17,6 @@ phases:
       - cd lambda2 && zip -r ../lambda2.zip . && cd ..
 
 artifacts:
-  files:
-    - dummy.txt
   secondary-artifacts:
     lambda1artifact:
       files:

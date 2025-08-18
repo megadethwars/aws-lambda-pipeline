@@ -18,11 +18,5 @@ phases:
 
 artifacts:
   files:
-    - dummy.txt
-  secondary-artifacts:
-    lambda1artifact:
-      files:
-        - lambda1.zip
-    lambda2artifact:
-      files:
-        - lambda2.zip
+    - lambda1.zip
+    - lambda2.zip

@@ -1,4 +1,3 @@
-
 version: 0.2
 
 phases:
@@ -18,6 +17,10 @@ phases:
       - cd lambda2 && zip -r ../lambda2.zip . && cd ..
 
 artifacts:
-  files:
-    - lambda1.zip
-    - lambda2.zip
+  secondary-artifacts:
+    lambda1artifact:
+      files:
+        - lambda1.zip
+    lambda2artifact:
+      files:
+        - lambda2.zip

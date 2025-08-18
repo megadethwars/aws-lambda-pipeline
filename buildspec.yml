@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Instalando dependencias (si existen requirements.txt)"
+      - if exist requirements.txt pip install -r requirements.txt -t .
+  build:
+    commands:
+      - echo "Empaquetando código para Lambda"
+      - powershell Compress-Archive -Path main.py, requirements.txt -DestinationPath lambda.zip -Force
+artifacts:
+  files:
+    - lambda.zip

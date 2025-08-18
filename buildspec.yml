@@ -6,14 +6,18 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
-      - echo "Instalando dependencias (si existen requirements.txt)"
-      - 'if [ -f requirements.txt ]; then pip install -r requirements.txt -t .; fi'
-
+      - echo "Instalando dependencias para lambda1"
+      - pip install -r lambda1/requirements.txt -t lambda1/ || true
+      - echo "Instalando dependencias para lambda2"
+      - pip install -r lambda2/requirements.txt -t lambda2/ || true
   build:
     commands:
-      - echo "Listo para desplegar main.py y requirements.txt sin comprimir"
+      - echo "Empaquetando lambda1"
+      - cd lambda1 && zip -r ../lambda1.zip . && cd ..
+      - echo "Empaquetando lambda2"
+      - cd lambda2 && zip -r ../lambda2.zip . && cd ..
 
 artifacts:
   files:
-    - lambda_function.py
-    - requirements.txt
+    - lambda1.zip
+    - lambda2.zip

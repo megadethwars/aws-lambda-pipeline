@@ -7,16 +7,11 @@ phases:
     commands:
       - echo "Instalando dependencias para lambda1"
       - pip install -r lambda1/requirements.txt -t lambda1/ || true
-      - echo "Instalando dependencias para lambda2"
-      - pip install -r lambda2/requirements.txt -t lambda2/ || true
   build:
     commands:
-      - echo "Empaquetando lambda1"
-      - cd lambda1 && zip -r ../lambda1.zip . && cd ..
-      - echo "Empaquetando lambda2"
-      - cd lambda2 && zip -r ../lambda2.zip . && cd ..
+      - echo "Listo para desplegar archivos de lambda1 sin comprimir"
 
 artifacts:
   files:
-    - lambda1.zip
-    - lambda2.zip
+    - lambda1/*
+

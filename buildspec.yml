@@ -8,11 +8,12 @@ phases:
     commands:
       - echo "Instalando dependencias (si existen requirements.txt)"
       - 'if [ -f requirements.txt ]; then pip install -r requirements.txt -t .; fi'
+
   build:
     commands:
-      - echo "Empaquetando código para Lambda"
-      - zip -r lambda.zip main.py requirements.txt
+      - echo "Listo para desplegar main.py y requirements.txt sin comprimir"
 
 artifacts:
   files:
-    - lambda.zip
+    - main.py
+    - requirements.txt
